@@ -13,7 +13,6 @@ const app = express()
 app.use(express.static('public'))
 
 app.get('/', (req, res) => {
-  // const Page = <App title="react ssr"></App>
   const content = renderToString(App)
   res.send(`
     <html>
