@@ -7,35 +7,35 @@
 // 首页的逻辑
 import axios from "axios";
 // actionType
-const GET_LIST = 'INDEX/GET_LIST'
+const GET_LIST = 'INDEX/GET_USERINFO'
 
 // actionCreator
-const changeList = list => ({
+const changeList = data => ({
     type: GET_LIST,
-    list
+    data
 })
 
-export const getIndexList = server => {
+export const getUserInfo = server => {
     return (dispath, getState, axiosInstance) => {
-        return axios.get('http://localhost:9090/api/course/list')
-        .then(res => {
-            const {list} = res.data
-            console.log('list',list)
-            dispath(changeList(list))
-        })
+        return axios.get('http://localhost:9090/api/user/info')
+            .then(res => {
+                const { data } = res.data
+                console.log('user', data)
+                dispath(changeList(data))
+            })
     }
 }
 
 const defaultState = {
-    list: []
+    userinfo: {}
 }
 
-export default (state =  defaultState, action) => {
+export default (state = defaultState, action) => {
     switch (action.type) {
         case GET_LIST:
             const newState = {
                 ...state,
-                list: action.list
+                userinfo: action.data
             }
             return newState
         default:

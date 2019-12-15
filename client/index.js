@@ -7,14 +7,17 @@
 import React from 'react'
 import ReactDom from 'react-dom'
 import { Provider } from "react-redux";
-import { BrowserRouter } from "react-router-dom";
-import App from '../src/App'
-import store from "../src/store/store";
+import { BrowserRouter, Route } from "react-router-dom";
+import routes from '../src/App'
+import Header from '../src/component/Header'
+import {getClientStore} from "../src/store/store";
 
+const store = getClientStore()
 // 注水 客户端入口
 const Page = (<Provider store={store}>
     <BrowserRouter>
-        {App}
+        <Header></Header>
+        {routes.map(route => <Route {...route}></Route>)}
     </BrowserRouter>
 </Provider>)
 
