@@ -7,6 +7,8 @@
 import React, { useState, useEffect } from 'react'
 import { connect } from "react-redux";
 import { getIndexList } from "../store/index";
+import styles from './Index.css'
+import withStyle from '../withStyle'
 
 function Index(props) {
     const [count, setCount] = useState(1)
@@ -15,8 +17,8 @@ function Index(props) {
             props.getIndexList()
         }
     }, [])
-    return <div>
-        <h1> hello world ! {props.title} + {count}</h1>
+    return <div className={styles.container}>
+        <h1 className={styles.title}> hello world ! {props.title} + {count}</h1>
         <button onClick={() => setCount(count + 1)}>Add By 1</button>
         <hr />
         <ul>
@@ -36,4 +38,4 @@ export default connect(
         list: state.index.list
     }),
     {getIndexList}
-)(Index)
+)(withStyle(Index,styles))

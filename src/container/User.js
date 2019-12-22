@@ -7,11 +7,19 @@
 import React, { useState, useEffect } from 'react'
 import { connect } from "react-redux";
 import { getUserInfo } from "../store/user";
+import {Redirect} from 'react-router-dom'
 
 function User(props) {
-    return <div>
-        <h1> OK ! {props.userinfo.name} 's favourite fruit is  {props.userinfo.best}</h1>
-    </div>
+    useEffect(() => {
+        if (!props.userinfo.name) {
+            props.getUserInfo()
+        }
+    }, [])
+    return <Redirect to="/about"></Redirect>
+    
+    // <div>
+    //     <h1> OK ! {props.userinfo.name} 's favourite fruit is  {props.userinfo.best}</h1>
+    // </div>
 }
 
 User.loadData = (store) => {

@@ -12,7 +12,8 @@ export default () => {
         <div>
             <Link to="/">首页</Link> / 
             <Link to="/about">关于</Link> / 
-            <Link to="/user">用户</Link>
+            <Link to="/user">用户</Link> /
+            <Link to="/notfound">更多</Link>
         </div>
     )
 }

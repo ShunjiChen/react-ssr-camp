@@ -9,6 +9,8 @@ import { Route } from "react-router-dom";
 import Index from "./container/Index";
 import About from "./container/About";
 import User from './container/User'
+// import './App.css'
+import Notfound from './container/Notfound';
 
 // export default (
 //   <div>
@@ -21,7 +23,7 @@ export default [
   {
     path: '/',
     component: Index,
-    // exact: true,
+    exact: true,
     key: 'index'
   },
   {
@@ -36,4 +38,8 @@ export default [
     exact: true,
     key: 'user'
   },
+  {
+    component: Notfound,
+    key: 'notfound'
+  }
 ]

@@ -5,7 +5,7 @@
  * @Description: file content
  */
 // 首页的逻辑
-import axios from "axios";
+// import axios from "axios";
 // actionType
 const GET_LIST = 'INDEX/GET_USERINFO'
 
@@ -16,8 +16,8 @@ const changeList = data => ({
 })
 
 export const getUserInfo = server => {
-    return (dispath, getState, axiosInstance) => {
-        return axios.get('http://localhost:9090/api/user/info')
+    return (dispath, getState, $axios) => {
+        return $axios.get('/api/user/info')
             .then(res => {
                 const { data } = res.data
                 console.log('user', data)

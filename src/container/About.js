@@ -5,11 +5,12 @@
  * @Description: file content
  */
 import React from 'react'
+import styles from './About.css'
 
 function About (props) {
 
   return <div>
-    关于页面
+    <h1 className={styles.title}>Login Page</h1>
   </div>
 }
 
